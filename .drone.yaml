@@ -1,13 +1,13 @@
 pipeline:
   publish_docker:
-  image: plugins/docker
-  repo: drone/drone
-  dockerfile: Dockerfile.alpine
-  secrets: [ docker_username, docker_password ]
-  tag: [ drone-$${DRONE_BUILD_NUMBER} ]
-  when:
-    branch: master
-    event: push
+    image: plugins/docker
+    repo: drone/drone
+    dockerfile: Dockerfile.alpine
+    secrets: [ docker_username, docker_password ]
+    tag: [ drone-$${DRONE_BUILD_NUMBER} ]
+    when:
+      branch: master
+      event: push
         #
         #  pytests:
         #    image: golang
