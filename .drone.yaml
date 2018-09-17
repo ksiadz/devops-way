@@ -1,0 +1,28 @@
+pipeline:
+  publish_docker:
+    image: plugins/docker
+    repo: drone/drone
+    dockerfile: Dockerfile.alpine
+    secrets: [ docker_username, docker_password ]
+    tag: [ alpine ]
+    when:
+      branch: master
+      event: push
+
+  pytests:
+    image: golang
+    commands:
+      - go get
+      - go build
+      - go test
+
+  frontend:
+    image: node:6
+    commands:
+      - npm install
+      - npm test
+
+  notify:
+    image: plugins/slack
+    channel: developers
+    username: drone
