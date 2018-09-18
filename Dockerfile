@@ -1,5 +1,5 @@
 FROM python:3
-COPY . /
+COPY . /app
 RUN 	apt-get update && \
 	apt-get install make -y
 WORKDIR /app
