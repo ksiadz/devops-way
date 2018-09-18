@@ -4,8 +4,8 @@
       repo: ksiadz/devops-way
       secrets: [ docker_username, docker_password ]
       tags: 
-      - build-${DRONE_BUILD_NUMBER}
-      - commit-${DRONE_COMMIT_SHA}
+      - ${DRONE_BUILD_NUMBER}
+      - ${DRONE_COMMIT_SHA}
       when:
         branch: master
         event: push
