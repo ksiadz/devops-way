@@ -1,4 +1,11 @@
   pipeline:
+    pytest:
+      image: python:3
+      commands:
+        - make run-tests
+    when:
+      event: [ push ]      
+    
     publish_docker:
       image: plugins/docker
       repo: ksiadz/devops-way
