@@ -6,6 +6,7 @@
       tags: 
       - ${DRONE_BUILD_NUMBER}
       - ${DRONE_COMMIT_SHA}
+      - latest
       when:
         branch: master
         event: push
