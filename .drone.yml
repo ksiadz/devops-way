@@ -1,11 +1,4 @@
   pipeline:
-    pytest:
-      image: python:3
-      commands:
-        - make run-tests
-    when:
-      event: [ push ]      
-    
     publish_docker:
       image: plugins/docker
       repo: ksiadz/devops-way
@@ -16,6 +9,15 @@
       when:
         branch: master
         event: push
+    
+        
+    pytest:
+      image: ksiadz/devops-way:${DRONE_BUILD_NUMBER}
+      commands:
+        - make run-tests
+      when:
+        event: [ push ]
+        
         #
         #  pytests:
         #    image: golang
