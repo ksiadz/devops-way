@@ -1,10 +1,11 @@
   pipeline:
     publish_docker:
       image: plugins/docker
-      repo: drone/drone
-      dockerfile: Dockerfile
+      repo: ksiadz/devops-way
       secrets: [ docker_username, docker_password ]
-      tag: ksiadz/build-${DRONE_BUILD_NUMBER}
+      tags: 
+      - build-${DRONE_BUILD_NUMBER}
+      - commit-${DRONE_COMMIT_SHA}
       when:
         branch: master
         event: push
