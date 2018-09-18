@@ -2,7 +2,7 @@
     publish_docker:
       image: plugins/docker
       repo: drone/drone
-      dockerfile: Dockerfile.alpine
+      dockerfile: Dockerfile
       secrets: [ docker_username, docker_password ]
       tag: [ drone-$${DRONE_BUILD_NUMBER} ]
       when:
