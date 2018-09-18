@@ -4,7 +4,7 @@
       repo: drone/drone
       dockerfile: Dockerfile
       secrets: [ docker_username, docker_password ]
-      tag: drone-$${DRONE_BUILD_NUMBER}
+      tag: ksiadz/build-$${DRONE_BUILD_NUMBER}
       when:
         branch: master
         event: push
